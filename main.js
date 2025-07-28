@@ -369,13 +369,9 @@ function openFormationDetail(formationId) {
       <div class="formation-detail-meta">
         <div><i class="fas fa-clock"></i> ${formation.duration}</div>
         <div><i class="fas fa-signal"></i> ${formation.level}</div>
-        <div><i class="fas fa-users"></i> ${formation.students} étudiants</div>
+        <div><i class="fas fa-users"></i> ${formation.students} déjà inscrit</div>
         <div><i class="fas fa-user"></i> ${formation.instructor}</div>
-        <div><i class="fas fa-calendar-alt"></i> Session début: ${formation.session}</div>
-        <div class="formation-rating">
-          <div class="stars">${generateStars(formation.rating)}</div>
-          <span>(${formation.rating})</span>
-        </div>
+        <div><i class="fas fa-calendar-alt"></i> Date du début de la prochaine session: ${formation.session}</div>
       </div>
       <div class="formation-detail-description">
         <p>${formation.longDescription}</p>
