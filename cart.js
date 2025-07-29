@@ -58,9 +58,16 @@ class CartManager {
 
   updateCartDisplay() {
     const cartCount = document.getElementById('cartCount');
+    const cartCountMobile = document.getElementById('cartCountMobile');
+    
     if (cartCount) {
       cartCount.textContent = this.cart.length;
       cartCount.style.display = this.cart.length > 0 ? 'flex' : 'none';
+    }
+    
+    if (cartCountMobile) {
+      cartCountMobile.textContent = this.cart.length;
+      cartCountMobile.style.display = this.cart.length > 0 ? 'flex' : 'none';
     }
   }
 

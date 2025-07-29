@@ -38,10 +38,62 @@
           </button>
         </div>
 
+        <button class="cart-btn mobile-cart-btn" id="cartBtnMobile">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCountMobile">0</span>
+        </button>
+
         <button class="mobile-menu-btn" id="mobileMenuBtn">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
+      
+      <!-- Overlay pour la sidebar mobile -->
+      <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+      
+      <!-- Sidebar Mobile -->
+      <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-header">
+          <h3>Menu</h3>
+          <button class="mobile-sidebar-close" id="mobileSidebarClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="mobile-sidebar-content">
+          <div class="nav-menu">
+            <a href="#home" class="nav-link active">
+              <i class="fas fa-home"></i>
+              Accueil
+            </a>
+            <a href="#formations" class="nav-link">
+              <i class="fas fa-graduation-cap"></i>
+              Formations
+            </a>
+            <a href="#about" class="nav-link">
+              <i class="fas fa-info-circle"></i>
+              À propos
+            </a>
+            <a href="#contact" class="nav-link">
+              <i class="fas fa-envelope"></i>
+              Contact
+            </a>
+          </div>
+          
+          <div class="nav-actions">
+            <div class="search-box">
+              <input type="text" id="searchInputMobile" placeholder="Rechercher une formation...">
+              <i class="fas fa-search"></i>
+            </div>
+            
+            <button class="cart-btn" id="cartBtnMobile">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cartCountMobile">0</span>
+              Mon Panier
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
@@ -158,6 +210,79 @@
         </div>
       </div>
     </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <h2 class="fade-in parallax-slow">À Propos de YEL'S FINANCES</h2>
+        <div class="about-content fade-in parallax-medium">
+          <div class="about-text">
+            <p>YEL'S FINANCES est votre partenaire de confiance pour l'excellence professionnelle. Nous proposons des formations de qualité dans les domaines du développement web, du marketing digital, de la data science et du design.</p>
+            <p>Notre mission est de vous accompagner dans votre développement professionnel avec des programmes adaptés et des formateurs expérimentés.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>Étudiants formés</p>
+            </div>
+            <div class="stat-item">
+              <h3>50+</h3>
+              <p>Formations disponibles</p>
+            </div>
+            <div class="stat-item">
+              <h3>95%</h3>
+              <p>Taux de satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <h2 class="fade-in parallax-slow">Contactez-nous</h2>
+        <div class="contact-content fade-in parallax-medium">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>contact@yelsfinances.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Téléphone</h4>
+                <p>+33 1 23 45 67 89</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Adresse</h4>
+                <p>123 Rue de la Formation, Paris</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="Votre nom" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Votre email" required>
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Votre message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">

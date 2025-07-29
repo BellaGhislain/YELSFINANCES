@@ -14,16 +14,33 @@ function initializeApp() {
 }
 
 function setupEventListeners() {
-  // Navigation mobile
+  // Navigation mobile - Sidebar
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileSidebarClose = document.getElementById('mobileSidebarClose');
+  const mobileSidebarOverlay = document.getElementById('mobileSidebarOverlay');
+  
   if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuBtn.addEventListener('click', toggleMobileSidebar);
+  }
+  
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener('click', closeMobileSidebar);
+  }
+  
+  if (mobileSidebarOverlay) {
+    mobileSidebarOverlay.addEventListener('click', closeMobileSidebar);
   }
 
   // Recherche
   const searchInput = document.getElementById('searchInput');
+  const searchInputMobile = document.getElementById('searchInputMobile');
+  
   if (searchInput) {
     searchInput.addEventListener('input', handleSearch);
+  }
+  
+  if (searchInputMobile) {
+    searchInputMobile.addEventListener('input', handleSearch);
   }
 
   // Filtres
@@ -34,8 +51,24 @@ function setupEventListeners() {
 
   // Panier
   const cartBtn = document.getElementById('cartBtn');
+  const cartBtnMobile = document.getElementById('cartBtnMobile');
+  
   if (cartBtn) {
     cartBtn.addEventListener('click', openCartModal);
+  }
+  
+  if (cartBtnMobile) {
+    cartBtnMobile.addEventListener('click', () => {
+      openCartModal();
+      // Fermer la sidebar mobile après avoir cliqué sur le panier
+      closeMobileSidebar();
+    });
+  }
+  
+  // Gérer le panier mobile dans la navigation
+  const cartBtnMobileNav = document.getElementById('cartBtnMobile');
+  if (cartBtnMobileNav) {
+    cartBtnMobileNav.addEventListener('click', openCartModal);
   }
 
   // Modals
@@ -47,12 +80,18 @@ function setupEventListeners() {
   // Hero buttons
   setupHeroButtons();
 
-  // Gestion de la touche Échap pour arrêter la vidéo
+  // Gestion de la touche Échap pour arrêter la vidéo et fermer le menu mobile
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const formationModal = document.getElementById('formationModal');
       if (formationModal && formationModal.classList.contains('active')) {
         closeFormationModal();
+      }
+      
+      // Fermer la sidebar mobile avec Échap
+      const mobileSidebar = document.getElementById('mobileSidebar');
+      if (mobileSidebar && mobileSidebar.classList.contains('active')) {
+        closeMobileSidebar();
       }
     }
   });
@@ -119,6 +158,9 @@ function setupSmoothScroll() {
           top: offsetTop,
           behavior: 'smooth'
         });
+        
+        // Fermer la sidebar mobile si ouverte
+        closeMobileSidebar();
       }
     });
   });
@@ -200,9 +242,36 @@ function updateActiveNavLink() {
   });
 }
 
-function toggleMobileMenu() {
-  const navMenu = document.querySelector('.nav-menu');
-  navMenu.classList.toggle('active');
+function toggleMobileSidebar() {
+  const mobileSidebar = document.getElementById('mobileSidebar');
+  const mobileSidebarOverlay = document.getElementById('mobileSidebarOverlay');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const icon = mobileMenuBtn.querySelector('i');
+  
+  if (mobileSidebar && mobileSidebarOverlay) {
+    mobileSidebar.classList.add('active');
+    mobileSidebarOverlay.classList.add('active');
+    icon.className = 'fas fa-times';
+    
+    // Empêcher le scroll du body
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileSidebar() {
+  const mobileSidebar = document.getElementById('mobileSidebar');
+  const mobileSidebarOverlay = document.getElementById('mobileSidebarOverlay');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const icon = mobileMenuBtn.querySelector('i');
+  
+  if (mobileSidebar && mobileSidebarOverlay) {
+    mobileSidebar.classList.remove('active');
+    mobileSidebarOverlay.classList.remove('active');
+    icon.className = 'fas fa-bars';
+    
+    // Restaurer le scroll du body
+    document.body.style.overflow = '';
+  }
 }
 
 function handleSearch(e) {
@@ -324,6 +393,18 @@ function openCartModal() {
     modal.classList.add('active');
     cartManager.renderCartItems();
   }
+  
+  // Synchroniser les compteurs de panier
+  updateCartCounters();
+}
+
+function updateCartCounters() {
+  const cartCount = document.getElementById('cartCount');
+  const cartCountMobile = document.getElementById('cartCountMobile');
+  const count = cartManager.cart.length;
+  
+  if (cartCount) cartCount.textContent = count;
+  if (cartCountMobile) cartCountMobile.textContent = count;
 }
 
 function closeCartModal() {
