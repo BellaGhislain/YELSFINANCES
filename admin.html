@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - YEL'S FINANCES</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #181c24; color: #fff; font-family: 'Inter', sans-serif; }
+    .admin-container { max-width: 1100px; margin: 2rem auto; background: #23283a; border-radius: 12px; box-shadow: 0 4px 24px #0002; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 2rem; }
+    .admin-section { margin-bottom: 2.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+    th, td { padding: 0.75rem 1rem; border-bottom: 1px solid #333; text-align: left; }
+    th { background: #1a1f3a; }
+    tr:last-child td { border-bottom: none; }
+    .btn-admin { background: var(--primary, #d4af37); color: #181c24; border: none; border-radius: 6px; padding: 0.5rem 1.2rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .btn-admin:hover { background: #ffd700; }
+    input[type="text"], input[type="number"], input[type="date"] { padding: 0.4rem 0.7rem; border-radius: 5px; border: 1px solid #444; background: #222; color: #fff; }
+    select { padding: 0.4rem 0.7rem; border-radius: 5px; border: 1px solid #444; background: #222; color: #fff; }
+    .form-inline { display: flex; gap: 0.5rem; align-items: center; }
+    .form-inline input, .form-inline select { margin-bottom: 0; }
+    .admin-table-scroll { overflow-x: auto; }
+
+    @media (max-width: 700px) {
+      .admin-container { padding: 0.5rem; }
+      th, td { padding: 0.5rem 0.4rem; }
+      .form-inline { flex-direction: column; align-items: stretch; gap: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Administration YEL'S FINANCES</h1>
+
+    <div class="admin-section">
+      <h2>👥 Souscriptions aux formations</h2>
+      <div class="admin-table-scroll">
+        <table id="subscriptionsTable">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Formation</th>
+              <th>Session</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rempli par JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h2>📅 Sessions & Montants des Formations</h2>
+      <div class="admin-table-scroll">
+        <table id="formationsTable">
+          <thead>
+            <tr>
+              <th>Formation</th>
+              <th>Session Début</th>
+              <th>Session Fin</th>
+              <th>Lieu</th>
+              <th>Mode</th>
+              <th>Montant (F CFA)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rempli par JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html> 

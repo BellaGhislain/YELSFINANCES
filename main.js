@@ -327,7 +327,9 @@ function renderFormations() {
           <span><i class="fas fa-clock"></i> ${formation.duration}</span>
           <span><i class="fas fa-signal"></i> ${formation.level}</span>
           <span><i class="fas fa-users"></i> ${formation.students}</span>
-          <span><i class="fas fa-calendar-alt"></i> ${formation.session}</span>
+          <span><i class="fas fa-calendar-alt"></i> ${formation.sessionStart}</span>
+          <span><i class="fas fa-map-marker-alt"></i> ${formation.location}</span>
+          <span><i class="fas fa-laptop"></i> ${formation.mode}</span>
         </div>
         <div class="formation-footer">
           <div class="formation-price">
@@ -452,7 +454,9 @@ function openFormationDetail(formationId) {
         <div><i class="fas fa-signal"></i> ${formation.level}</div>
         <div><i class="fas fa-users"></i> ${formation.students} déjà inscrit</div>
         <div><i class="fas fa-user"></i> ${formation.instructor}</div>
-        <div><i class="fas fa-calendar-alt"></i> Date du début de la prochaine session: ${formation.session}</div>
+        <div><i class="fas fa-calendar-alt"></i> Début: ${formation.sessionStart}</div>
+        <div><i class="fas fa-map-marker-alt"></i> ${formation.location}</div>
+        <div><i class="fas fa-laptop"></i> ${formation.mode}</div>
       </div>
       <div class="formation-detail-description">
         <p>${formation.longDescription}</p>

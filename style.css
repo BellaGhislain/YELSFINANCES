@@ -66,6 +66,12 @@
 /* Base */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 body {
@@ -73,16 +79,19 @@ body {
   line-height: 1.6;
   color: var(--white);
   background: 
-    linear-gradient(rgba(26, 31, 58, 0.6), rgba(15, 20, 45, 0.7)),
     url('assets/images/background1.jpg') center center fixed;
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
 
 .container {
   max-width: 1200px;
@@ -461,64 +470,139 @@ body {
   visibility: visible;
 }
 
-/* Hero Section */
-.hero {
+/* Hero Section - Section pleine page professionnelle */
+.hero-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  color: white;
   position: relative;
-  padding: calc(80px + var(--space-2xl)) var(--space-2xl) var(--space-3xl) var(--space-2xl);
-  background: none;
+  margin-top: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.3); /* Légère ombre pour la lisibilité */
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  text-align: center;
+  z-index: 2;
 }
 
 .hero-content {
-  max-width: 600px;
-  text-align: left;
-  padding: 0;
-  z-index: 10;
-  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 0 60px 0; /* Padding-top pour éviter le header */
 }
 
 .hero-title {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: var(--space-lg);
-  color: #ffd700;
+  margin-bottom: 30px;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  letter-spacing: -0.01em;
-  position: relative;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.8);
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: var(--space-xl);
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.95;
   line-height: 1.6;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  max-width: 500px;
+  font-weight: 300;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.7);
 }
 
 .hero-actions {
   display: flex;
-  gap: var(--space-lg);
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: var(--space-3xl);
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
+.hero-actions .btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-decoration: none;
+  display: inline-block;
+}
 
+.hero-actions .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
 
+.hero-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
 
+.hero-actions .btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
 
-/* Responsive pour les boutons hero */
+.hero-actions .btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design pour Hero */
 @media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
   .hero-actions {
     flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-lg);
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+  
+  .hero-content {
+    padding: 60px 0 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-actions .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .hero-content {
+    padding: 50px 0 30px 0;
   }
 }
 
@@ -748,6 +832,9 @@ body {
   position: relative;
   border: 2px solid rgba(212, 175, 55, 0.2);
   transform-style: preserve-3d;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .formation-card::before {
@@ -820,6 +907,10 @@ body {
   position: relative;
   z-index: 2;
   background: linear-gradient(135deg, rgba(26, 31, 58, 0.05) 0%, transparent 100%);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Permet au contenu de se réduire si nécessaire */
 }
 
 .formation-title {
@@ -900,12 +991,18 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  width: 100%;
+  min-height: 60px; /* Hauteur minimale pour le footer */
 }
 
 .formation-price {
   font-size: 1.8rem;
   font-weight: 900;
+  white-space: nowrap;
+  min-width: 120px;
+  text-align: right;
   background: var(--primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -925,9 +1022,9 @@ body {
   background: linear-gradient(135deg, var(--primary-solid) 0%, #b8860b 100%);
   color: var(--white);
   border: none;
-  padding: var(--space-md) var(--space-lg);
+  padding: 0.5rem 1rem;
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition-normal);
   font-size: 0.9rem;
@@ -936,6 +1033,13 @@ body {
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  white-space: nowrap;
+  margin-left: auto;
+  height: 42px; /* Hauteur fixe pour correspondre à la hauteur du prix */
 }
 
 .view-more-btn::before {
@@ -2098,23 +2202,7 @@ body {
   transform: translateY(0);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: var(--gray-100);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
-}
 
 /* Effets Parallax */
 .parallax-container {
@@ -2590,5 +2678,690 @@ body {
   }
   50% {
     box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Réduction de la taille des éléments */
+h1 {
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
+}
+
+h2 {
+  font-size: 1.5rem !important;
+  line-height: 1.3 !important;
+}
+
+h3 {
+  font-size: 1.2rem !important;
+  line-height: 1.4 !important;
+}
+
+h4 {
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Réduction de la taille des boutons */
+.btn {
+  padding: 8px 16px !important;
+  font-size: 0.9rem !important;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 8px 16px !important;
+  font-size: 0.9rem !important;
+}
+
+/* Réduction de la taille des filtres */
+.filter-btn {
+  padding: 6px 12px !important;
+  font-size: 0.85rem !important;
+  margin: 4px !important;
+}
+
+/* Réduction de la taille des cartes de formation */
+.formation-card {
+  padding: 12px !important;
+}
+
+.formation-card h3 {
+  font-size: 1rem !important;
+  margin-bottom: 8px !important;
+}
+
+.formation-card p {
+  font-size: 0.85rem !important;
+  line-height: 1.4 !important;
+}
+
+.formation-card .price {
+  font-size: 1.1rem !important;
+}
+
+/* Réduction de la taille du texte général */
+p {
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Réduction de la taille des éléments de navigation */
+.nav-brand span {
+  font-size: 1.2rem !important;
+}
+
+.nav-link {
+  font-size: 0.9rem !important;
+  padding: 8px 12px !important;
+}
+
+/* Réduction de la taille des modals */
+.modal-content {
+  max-width: 500px !important;
+}
+
+.modal-header h3 {
+  font-size: 1.3rem !important;
+}
+
+/* Réduction de la taille des formulaires */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 12px !important;
+  font-size: 0.9rem !important;
+}
+
+/* Réduction de la taille des statistiques */
+.stat-item h3 {
+  font-size: 1.8rem !important;
+}
+
+.stat-item p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des éléments de contact */
+.contact-item h4 {
+  font-size: 0.95rem !important;
+}
+
+.contact-item p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille du footer */
+.footer-section h4 {
+  font-size: 1rem !important;
+}
+
+.footer-section a,
+.footer-section p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des icônes */
+.fas, .fab {
+  font-size: 0.9em !important;
+}
+
+/* Réduction de la taille des éléments de la grille de fonctionnalités */
+.feature-item h3 {
+  font-size: 1rem !important;
+}
+
+.feature-item p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des éléments de l'équipe */
+.team-member h3 {
+  font-size: 1.1rem !important;
+}
+
+.member-role {
+  font-size: 0.9rem !important;
+}
+
+.member-description {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des valeurs */
+.value-item h3 {
+  font-size: 1rem !important;
+}
+
+.value-item p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des FAQ */
+.faq-question h3 {
+  font-size: 1rem !important;
+}
+
+.faq-answer p {
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille des éléments de recherche */
+.search-box input {
+  padding: 6px 12px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Réduction de la taille du panier */
+.cart-count {
+  font-size: 0.75rem !important;
+}
+
+/* Réduction de la taille des éléments de présentation */
+.presentation-text p {
+  font-size: 0.9rem !important;
+}
+
+/* Ajustement des marges et paddings pour un look plus compact */
+.container {
+  padding: 0 15px !important;
+}
+
+section {
+  padding: 40px 0 !important;
+}
+
+.about-content,
+.contact-content,
+.values-grid,
+.team-grid {
+  gap: 20px !important;
+}
+
+/* Réduction de la taille des éléments de la grille de formations */
+.grid {
+  gap: 15px !important;
+}
+
+/* Réduction de la taille des éléments de la sidebar mobile */
+.mobile-sidebar-content .nav-link {
+  font-size: 0.9rem !important;
+  padding: 10px 15px !important;
+}
+
+/* Réduction de la taille des éléments du modal de formation */
+.formation-detail h2 {
+  font-size: 1.3rem !important;
+}
+
+.formation-detail p {
+  font-size: 0.9rem !important;
+}
+
+/* Réduction de la taille des éléments du checkout */
+.checkout-form label {
+  font-size: 0.9rem !important;
+}
+
+.checkout-summary h4 {
+  font-size: 1rem !important;
+}
+
+/* Ajustement général pour un look plus professionnel et compact */
+* {
+  box-sizing: border-box;
+}
+
+/* Réduction de la taille des éléments de la page d'accueil */
+.hero-title {
+  font-size: 2.2rem !important;
+  line-height: 1.2 !important;
+}
+
+.hero-actions .btn {
+  padding: 10px 20px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Réduction de la taille des éléments de la page produits */
+.filters h2 {
+  font-size: 1.4rem !important;
+  margin-bottom: 15px !important;
+}
+
+/* Réduction de la taille des éléments de la page à propos */
+.about-section h2,
+.values-section h2,
+.team-section h2 {
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
+}
+
+/* Réduction de la taille des éléments de la page contact */
+.contact-section h2,
+.faq-section h2 {
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
+}
+
+.contact-form h3 {
+  font-size: 1.1rem !important;
+  margin-bottom: 15px !important;
+}
+
+/* Styles pour les nouvelles sections de la page d'accueil */
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+  color: white;
+  margin-bottom: 60px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 30px;
+}
+
+.hero-actions .btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+/* Formations Preview Section */
+.formations-preview-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.formations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.formation-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.formation-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.formation-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(212, 175, 55, 0.9);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.formation-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.formation-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.formation-content {
+  padding: 20px;
+}
+
+.formation-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.formation-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.formation-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+}
+
+.formation-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cccccc;
+}
+
+.formation-meta i {
+  color: #d4af37;
+  width: 16px;
+}
+
+.formation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px;
+}
+
+.formation-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.view-more-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.view-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Why Choose Section */
+.why-choose-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.advantage-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.advantage-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.advantage-icon i {
+  font-size: 32px;
+  color: white;
+}
+
+.advantage-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.advantage-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+}
+
+.testimonial-content {
+  margin-bottom: 20px;
+}
+
+.testimonial-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar i {
+  font-size: 20px;
+  color: white;
+}
+
+.author-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.author-info p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-actions .btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cta-actions .btn-primary {
+  background: white;
+  color: #667eea;
+}
+
+.cta-actions .btn-primary:hover {
+  background: #f8f9fa;
+}
+
+.cta-actions .btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-actions .btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .formations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .formation-card,
+  .testimonial-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .formation-card,
+  .testimonial-card {
+    padding: 15px;
   }
 }

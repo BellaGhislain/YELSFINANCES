@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YEL'S FINANCES - Formations en ligne</title>
+    <title>YEL'S FINANCES - Accueil</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -20,10 +20,10 @@
         </div>
         
         <div class="nav-menu">
-          <a href="#home" class="nav-link active">Accueil</a>
-          <a href="#formations" class="nav-link">Formations</a>
-          <a href="#about" class="nav-link">À propos</a>
-          <a href="#contact" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link active">Accueil</a>
+          <a href="produits.html" class="nav-link">Produits</a>
+          <a href="a-propos.html" class="nav-link">À propos</a>
+          <a href="contact.html" class="nav-link">Contact</a>
         </div>
 
         <div class="nav-actions">
@@ -62,19 +62,19 @@
         
         <div class="mobile-sidebar-content">
           <div class="nav-menu">
-            <a href="#home" class="nav-link active">
+            <a href="index.html" class="nav-link active">
               <i class="fas fa-home"></i>
               Accueil
             </a>
-            <a href="#formations" class="nav-link">
+            <a href="produits.html" class="nav-link">
               <i class="fas fa-graduation-cap"></i>
-              Formations
+              Produits
             </a>
-            <a href="#about" class="nav-link">
+            <a href="a-propos.html" class="nav-link">
               <i class="fas fa-info-circle"></i>
               À propos
             </a>
-            <a href="#contact" class="nav-link">
+            <a href="contact.html" class="nav-link">
               <i class="fas fa-envelope"></i>
               Contact
             </a>
@@ -96,37 +96,211 @@
       </div>
     </header>
 
+
+
     <!-- Hero Section -->
-    <section class="hero parallax-container" id="home">
-      <div class="hero-content fade-in">
-        <h1 class="hero-title parallax-slow">Développez vos compétences avec nos formations d'excellence</h1>
+    <section class="hero-section">
+      <div class="hero-container">
+        <div class="hero-content fade-in parallax-slow">
+          <h1 class="hero-title">Boostez votre carrière avec des formations certifiantes et pratiques</h1>
+          <p class="hero-subtitle">Accédez à des formations 100% en ligne, conçues par des experts, et reconnues dans les secteurs du digital, du business et de la tech.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary">Nos formations</button>
-          <button class="btn btn-secondary">Contact</button>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Filter Section -->
-    <section class="filters formations-section" id="formations">
-      <div class="container">
-        <h2 class="fade-in parallax-slow">Nos Formations</h2>
-        <div class="filter-controls fade-in parallax-medium">
-          <button class="filter-btn active" data-category="all">Toutes</button>
-          <button class="filter-btn" data-category="web">Développement Web</button>
-          <button class="filter-btn" data-category="marketing">Marketing Digital</button>
-          <button class="filter-btn" data-category="data">Data Science</button>
-          <button class="filter-btn" data-category="design">Design</button>
+            <a href="produits.html" class="btn btn-primary">Découvrir les formations</a>
+            <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Formations Grid -->
-    <section class="formations-grid formations-section parallax-container">
+    <!-- Nos Formations Section -->
+    <section class="formations-preview-section">
       <div class="container">
-        <div class="grid fade-in" id="formationsGrid">
-          <!-- Les formations seront générées par JavaScript -->
+        <h2 class="section-title fade-in parallax-slow">Nos Formations</h2>
+        <div class="formations-grid fade-in parallax-medium">
+          <div class="formation-card">
+            <div class="formation-image" style="background-image: url('https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=800')">
+              <span class="formation-badge">Populaire</span>
+            </div>
+            <div class="formation-content">
+              <h3 class="formation-title">Développement Web Full-Stack avec React & Node.js</h3>
+              <div class="formation-meta">
+                <span><i class="fas fa-clock"></i> 12 semaines</span>
+                <span><i class="fas fa-signal"></i> Intermédiaire</span>
+                <span><i class="fas fa-users"></i> 2450</span>
+                <span><i class="fas fa-calendar-alt"></i> 2024-07-01</span>
+                <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+                <span><i class="fas fa-laptop"></i> Présentiel</span>
+              </div>
+              <div class="formation-footer">
+                <div class="formation-price">
+                  899 F CFA
+                </div>
+                <button class="view-more-btn" onclick="openFormationDetail(1)">
+                  <i class="fas fa-eye"></i>
+                  Voir plus
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="formation-card">
+            <div class="formation-image" style="background-image: url('https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800')">
+              <span class="formation-badge">Promo</span>
+            </div>
+            <div class="formation-content">
+              <h3 class="formation-title">Marketing Digital & Growth Hacking</h3>
+              <div class="formation-meta">
+                <span><i class="fas fa-clock"></i> 10 semaines</span>
+                <span><i class="fas fa-signal"></i> Débutant</span>
+                <span><i class="fas fa-users"></i> 1850</span>
+                <span><i class="fas fa-calendar-alt"></i> 2024-07-10</span>
+                <span><i class="fas fa-map-marker-alt"></i> En ligne</span>
+                <span><i class="fas fa-laptop"></i> En ligne</span>
+              </div>
+              <div class="formation-footer">
+                <div class="formation-price">
+                  699 F CFA
+                </div>
+                <button class="view-more-btn" onclick="openFormationDetail(2)">
+                  <i class="fas fa-eye"></i>
+                  Voir plus
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="formation-card">
+            <div class="formation-image" style="background-image: url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800')">
+              <span class="formation-badge">Populaire</span>
+            </div>
+            <div class="formation-content">
+              <h3 class="formation-title">Data Science avec Python & Machine Learning</h3>
+              <div class="formation-meta">
+                <span><i class="fas fa-clock"></i> 16 semaines</span>
+                <span><i class="fas fa-signal"></i> Avancé</span>
+                <span><i class="fas fa-users"></i> 980</span>
+                <span><i class="fas fa-calendar-alt"></i> 2024-08-01</span>
+                <span><i class="fas fa-map-marker-alt"></i> Lyon, France</span>
+                <span><i class="fas fa-laptop"></i> Présentiel</span>
+              </div>
+              <div class="formation-footer">
+                <div class="formation-price">
+                  1199 F CFA
+                </div>
+                <button class="view-more-btn" onclick="openFormationDetail(3)">
+                  <i class="fas fa-eye"></i>
+                  Voir plus
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi nous choisir Section -->
+    <section class="why-choose-section">
+      <div class="container">
+        <h2 class="section-title fade-in parallax-slow">Pourquoi nous choisir ?</h2>
+        <div class="advantages-grid fade-in parallax-medium">
+          <div class="advantage-item">
+            <div class="advantage-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Formations Qualité</h3>
+            <p>Des programmes conçus par des experts du secteur avec des contenus à jour et pertinents</p>
+          </div>
+          
+          <div class="advantage-item">
+            <div class="advantage-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Communauté Active</h3>
+            <p>Rejoignez une communauté de professionnels et partagez vos expériences</p>
+          </div>
+          
+          <div class="advantage-item">
+            <div class="advantage-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3>Certifications Reconnues</h3>
+            <p>Obtenez des certifications reconnues par l'industrie pour valoriser vos compétences</p>
+      </div>
+
+          <div class="advantage-item">
+            <div class="advantage-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Flexibilité Totale</h3>
+            <p>Apprenez à votre rythme, quand vous voulez, depuis n'importe où</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title fade-in parallax-slow">Ce que disent nos apprenants</h2>
+        <div class="testimonials-grid fade-in parallax-medium">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>"Grâce à YEL'S FINANCES, j'ai pu me reconvertir dans le développement web. Les formations sont excellentes et j'ai trouvé un emploi rapidement !"</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="author-info">
+                <h4>Sarah M.</h4>
+                <p>Développeuse Web Junior</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>"Les formations en marketing digital m'ont permis de lancer ma propre entreprise. Le contenu est pratique et directement applicable."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="author-info">
+                <h4>Thomas L.</h4>
+                <p>Entrepreneur Digital</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <p>"Formation data science exceptionnelle ! J'ai appris Python et l'analyse de données. Maintenant je travaille dans une startup tech."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="author-info">
+                <h4>Marie K.</h4>
+                <p>Data Analyst</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content fade-in parallax-slow">
+          <h2>Rejoignez nos milliers d'apprenants !</h2>
+          <p>Commencez votre transformation professionnelle dès aujourd'hui</p>
+          <div class="cta-actions">
+            <a href="produits.html" class="btn btn-primary">Commencer maintenant</a>
+            <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+          </div>
         </div>
       </div>
     </section>
@@ -151,18 +325,6 @@
             <button class="btn btn-secondary" id="clearCartBtn">Vider le panier</button>
             <button class="btn btn-primary" id="checkoutBtn">Commander</button>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Formation Detail Modal -->
-    <div class="modal" id="formationModal">
-      <div class="modal-content formation-detail">
-        <button class="close-btn" id="closeFormationBtn">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="formation-detail-content" id="formationDetailContent">
-          <!-- Le contenu sera généré par JavaScript -->
         </div>
       </div>
     </div>
@@ -211,79 +373,6 @@
       </div>
     </div>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <h2 class="fade-in parallax-slow">À Propos de YEL'S FINANCES</h2>
-        <div class="about-content fade-in parallax-medium">
-          <div class="about-text">
-            <p>YEL'S FINANCES est votre partenaire de confiance pour l'excellence professionnelle. Nous proposons des formations de qualité dans les domaines du développement web, du marketing digital, de la data science et du design.</p>
-            <p>Notre mission est de vous accompagner dans votre développement professionnel avec des programmes adaptés et des formateurs expérimentés.</p>
-          </div>
-          <div class="about-stats">
-            <div class="stat-item">
-              <h3>500+</h3>
-              <p>Étudiants formés</p>
-            </div>
-            <div class="stat-item">
-              <h3>50+</h3>
-              <p>Formations disponibles</p>
-            </div>
-            <div class="stat-item">
-              <h3>95%</h3>
-              <p>Taux de satisfaction</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <h2 class="fade-in parallax-slow">Contactez-nous</h2>
-        <div class="contact-content fade-in parallax-medium">
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email</h4>
-                <p>contact@yelsfinances.com</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Téléphone</h4>
-                <p>+33 1 23 45 67 89</p>
-              </div>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Adresse</h4>
-                <p>123 Rue de la Formation, Paris</p>
-              </div>
-            </div>
-          </div>
-          <div class="contact-form">
-            <form>
-              <div class="form-group">
-                <input type="text" placeholder="Votre nom" required>
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Votre email" required>
-              </div>
-              <div class="form-group">
-                <textarea placeholder="Votre message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Envoyer le message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -300,15 +389,15 @@
           </div>
           <div class="footer-section">
             <h4>Formations</h4>
-            <a href="#">Développement Web</a>
-            <a href="#">Marketing Digital</a>
-            <a href="#">Data Science</a>
-            <a href="#">Design</a>
+            <a href="produits.html">Développement Web</a>
+            <a href="produits.html">Marketing Digital</a>
+            <a href="produits.html">Data Science</a>
+            <a href="produits.html">Design</a>
           </div>
           <div class="footer-section">
             <h4>Support</h4>
             <a href="#">Centre d'aide</a>
-            <a href="#">Contact</a>
+            <a href="contact.html">Contact</a>
             <a href="#">FAQ</a>
             <a href="#">Conditions</a>
           </div>
@@ -326,7 +415,6 @@
     </footer>
 
     <script src="main.js"></script>
-    <script src="formations.js"></script>
     <script src="cart.js"></script>
     <script src="counter.js"></script>
     <script src="parallax.js"></script>
